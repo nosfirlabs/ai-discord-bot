@@ -4,16 +4,10 @@ import requests
 # Set up the Discord client
 client = discord.Client()
 
-# Set the URL of the external API server
-uri = 'https://api.example.com/endpoint'
-
 # Define a command that makes a request to the external API and returns the response
 @client.event
 async def on_message(message):
     if message.content.startswith('!api'):
-        # Make the request to the external API
-        response = requests.get(uri)
-
         # Return the response to Discord
         await message.channel.send(await do_ai_request(message.content.replace("!api", "")))
 
